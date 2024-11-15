@@ -1,0 +1,67 @@
+/* src/Auth.css */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .auth-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .auth-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .auth-button,
+  .google-button,
+  .toggle-button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .auth-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .auth-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .google-button {
+    background-color: #db4437;
+    color: #fff;
+  }
+  
+  .google-button:hover {
+    background-color: #b33629;
+  }
+  
+  .toggle-button {
+    background-color: transparent;
+    color: #007bff;
+  }
+  
+  .toggle-button:hover {
+    text-decoration: underline;
+  }
+  

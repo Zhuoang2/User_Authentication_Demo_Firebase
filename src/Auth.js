@@ -7,6 +7,18 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import {
+  Container,
+  TextField,
+  Button,
+  Typography,
+  Link,
+  Grid,
+  Box,
+  Divider,
+} from "@mui/material";
+import { Google } from "@mui/icons-material";
+
 
 function Auth() {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -60,37 +72,74 @@ function Auth() {
   };
 
   return (
-    <div>
-      <h2>{isRegistering ? "Register" : "Log In"}</h2>
-      <form onSubmit={handleEmailPasswordAuth}>
-        <input
-          type="email"
-          value={email}
-          onChange={handleEmailChange}
-          placeholder="Email"
-          required
-        />
-        <br />
-        <input
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-          placeholder="Password"
-          required
-        />
-        <br />
-        <button type="submit">{isRegistering ? "Register" : "Log In"}</button>
-      </form>
-      <button onClick={handleGoogleAuth}>
-        Sign {isRegistering ? "Up" : "In"} with Google
-      </button>
-      <br />
-      <button onClick={toggleRegistering}>
-        {isRegistering
-          ? "Already have an account? Log In"
-          : "Don't have an account? Register"}
-      </button>
-    </div>
+    <Container maxWidth="xs">
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography component="h1" variant="h5">
+          {isRegistering ? "Register" : "Sign In"}
+        </Typography>
+        <Box
+          component="form"
+          onSubmit={handleEmailPasswordAuth}
+          noValidate
+          sx={{ mt: 1 }}
+        >
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="Email Address"
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="Password"
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            autoComplete="current-password"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            {isRegistering ? "Register" : "Sign In"}
+          </Button>
+          <Divider sx={{ my: 2 }}>OR</Divider>
+          <Button
+            fullWidth
+            variant="outlined"
+            startIcon={<Google />}
+            onClick={handleGoogleAuth}
+          >
+            Sign {isRegistering ? "Up" : "In"} with Google
+          </Button>
+          <Grid container justifyContent="flex-end" sx={{ mt: 2 }}>
+            <Grid item>
+              <Link href="#" variant="body2" onClick={toggleRegistering}>
+                {isRegistering
+                  ? "Already have an account? Sign in"
+                  : "Don't have an account? Register"}
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </Container>
   );
 }
 
